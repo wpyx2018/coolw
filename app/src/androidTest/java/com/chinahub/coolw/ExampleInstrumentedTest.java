@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.chinahub.coolwdfsaf", appContext.getPackageName());
+        assertEquals("com.chinahub.coolw", appContext.getPackageName());
     }
 }
