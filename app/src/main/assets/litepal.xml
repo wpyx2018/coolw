@@ -3,7 +3,7 @@
     <version value="1" />
     <list>
         <mapping class="com.chinahub.coolw.db.City" />
-        <mapping class="com.chinahub.coolw.db.Country" />
+        <mapping class="com.chinahub.coolw.db.County" />
         <mapping class="com.chinahub.coolw.db.Province" />
     </list>
 </litepal>
