@@ -66,18 +66,13 @@ public class WeatherActivity extends AppCompatActivity {
         comfortText = findViewById(R.id.comfort_text);
         carWashText = findViewById(R.id.car_wash_text);
         sportText = findViewById(R.id.sport_text);
-        SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
-        String weather = prefs.getString("weather", null);
-        if(weather !=null){
-            //有缓存时直接解析天气数据
-            Weather weather1 = Utility.handleWeatherResponse(weather);
-            showWeatherInfo(weather1);
-        }else{
-            //无缓存是去服务器查询天气
+        /*SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        String weather = prefs.getString("weather", null);*/
+
             String weather_id = getIntent().getStringExtra("weather_id");
             weatherLayout.setVisibility(View.VISIBLE);
             requestWeather(weather_id);
-        }
+        //}
     }
     /**
      * 根据天气id请求城市天气信息
@@ -106,9 +101,9 @@ public class WeatherActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         if(weather !=null && "ok".equals(weather.status)){
-                            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
+                           /* SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit();
                             editor.putString("weather",responseText);
-                            editor.apply();
+                            editor.apply();*/
                             showWeatherInfo(weather);
                         }else{
                             Toast.makeText(WeatherActivity.this,"获取天气信息失败",Toast.LENGTH_SHORT).show();
